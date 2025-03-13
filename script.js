@@ -233,47 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
- 
-
-  // Back to top button with fallback
-  const backToTopBtn = document.querySelector('.back-to-top');
-  
-  if (backToTopBtn) {
-    // Function to handle button visibility
-    function handleScroll() {
-      if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    }
-    
-    // Add scroll event with throttling for performance
-    let scrollTimer;
-    window.addEventListener('scroll', function() {
-      if (scrollTimer) {
-        clearTimeout(scrollTimer);
-      }
-      scrollTimer = setTimeout(handleScroll, 100);
-    });
-    
-    // Initial state check
-    handleScroll();
-    
-    // Scroll to top click handler
-    backToTopBtn.addEventListener('click', function() {
-      if ('scrollBehavior' in document.documentElement.style) {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      } else {
-        // For older browsers
-        window.scrollTo(0, 0);
-      }
-    });
-  }
-
   // Background music toggle with compatibility improvements
   const toggleMusicBtn = document.getElementById('toggle-music');
   const backgroundMusic = document.getElementById('background-music');
